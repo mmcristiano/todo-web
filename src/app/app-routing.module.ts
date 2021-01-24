@@ -7,7 +7,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   }
 ];
 
