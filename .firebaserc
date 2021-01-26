@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "todo-api-c1461": {
+      "hosting": {
+        "Todo": [
+          "todo-api-c1461"
+        ]
+      }
+    }
+  }
+}
