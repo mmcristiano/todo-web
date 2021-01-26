@@ -24,5 +24,10 @@ export class AppComponent implements OnInit {
       }
       console.log(data);
     });
+
+    //this.afAuth.idToken.subscribe(token => sessionStorage.setItem('token', token));
+    // TODO: Remover antes de publicar em produção
+    this.afAuth.idToken.subscribe(token => console.log(token));
+
   }
 }
