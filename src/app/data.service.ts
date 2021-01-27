@@ -14,7 +14,7 @@ export class DataService {
 
   public composeHeaders(token) {
     if (token) {
-      const headers = new HttpHeaders().set('Authorization', 'Bearer ${token}');
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       return headers;
     } else {
       return null;
@@ -34,6 +34,8 @@ export class DataService {
   }
 
   public postTodo(data, token) {
+    console.log(`${this.baseUrl}/v1/todos`);
+    console.log(data);
     return this.http.post(`${this.baseUrl}/v1/todos`, data, { headers: this.composeHeaders(token) });
   }
 
