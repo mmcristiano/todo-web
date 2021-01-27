@@ -18,6 +18,8 @@ import { NewComponent } from './pages/new/new.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //import { environment } from '../environments/environment';
 
@@ -40,6 +42,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
   ],
