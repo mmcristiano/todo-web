@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { DataService } from './../../data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-todo-list',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-
-  constructor() { }
+  @Input() todos: any = null;
+  constructor(
+    private service: DataService,
+    private afAuth: AngularFireAuth,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  markAsDone(todo) {
+    this.afAuth.idToken.subscribe(token => {
+      const data = { id: todo.id };
+      this.service.markAsDone(data, token).subscribe(res => {
+        todo.done = true
+      })
+    });
   }
 
 }
